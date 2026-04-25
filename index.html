@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket 3D Arena</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app-shell">
+      <header class="top-bar glass-card">
+        <div>
+          <h1>Cricket 3D Arena</h1>
+          <p class="subtitle">Time your shots, chase the boundary, rule the scoreboard.</p>
+        </div>
+        <div class="controls-inline">
+          <button id="startBtn" class="btn primary">Start Match</button>
+          <button id="pauseBtn" class="btn" disabled>Pause</button>
+          <button id="resetBtn" class="btn danger">Reset</button>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <section class="canvas-wrap glass-card">
+          <canvas id="cricketCanvas"></canvas>
+          <div id="hitIndicator">Perfect timing!</div>
+          <div class="hint-overlay">Press <kbd>Space</kbd> or tap <kbd>Hit</kbd> just before the ball reaches you.</div>
+          <button id="hitBtn" class="btn primary hit-btn">🏏 Hit</button>
+        </section>
+
+        <aside class="side-panel glass-card">
+          <h2>Live Match Center</h2>
+          <div class="score-grid">
+            <div>
+              <span class="label">Runs</span>
+              <span id="runs" class="value">0</span>
+            </div>
+            <div>
+              <span class="label">Wickets</span>
+              <span id="wickets" class="value">0</span>
+            </div>
+            <div>
+              <span class="label">Balls</span>
+              <span id="balls" class="value">0 / 12</span>
+            </div>
+            <div>
+              <span class="label">Run Rate</span>
+              <span id="runRate" class="value">0.00</span>
+            </div>
+          </div>
+
+          <label for="difficulty" class="config-label">Bowling Difficulty</label>
+          <select id="difficulty" class="select">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <div class="legend">
+            <p><strong>Scoring:</strong> 1–6 runs by hit distance.</p>
+            <p>Missed shot or clean bowled costs a wicket.</p>
+            <p>Match ends at 12 balls or 3 wickets.</p>
+          </div>
+
+          <div id="matchState" class="match-state">Ready to begin.</div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
